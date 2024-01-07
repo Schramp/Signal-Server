@@ -21,7 +21,7 @@ then
 fi;
 
 mkdir ${testDir};
-cp output/OpenLayers/Tests/Regacom_Tests_WGS84.html ${testDir}/
+cp output/OpenLayers/Tests/Regacom_Tests_WebMercator.html ${testDir}/
 
 echo "*************************************************************************"
 echo "Running 50cm LIDAR test..."
