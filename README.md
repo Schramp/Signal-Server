@@ -17,7 +17,7 @@ WARNING: The accuracy of the output is directly proportional to the accuracy of 
 ## Requirements
 * C++14-conformant C++ compiler (GCC,G++ / clang)
 * Build environment for C++ (linker, C++ Standard Library and so forth) 
-* CMake v3.5 or newer
+* CMake v3.13 or newer
 * Convert (part of ImageMagick)
 * For some additional scripts: Bash and Python interpreter
 * library pthread: POSIX threads library
@@ -74,7 +74,7 @@ int main()
 
 CMakeLists.txt
 ```
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 
 project(HelloWorld LANGUAGES CXX)
 
@@ -88,8 +88,8 @@ add_executable(HelloWorld main.cc)
 ```
 
 ```
-# cmake .
-# cmake --build .
+# cmake -D CMAKE_CXX_COMPILER=/usr/bin/g++-13 .
+# cmake --build . --verbose
 # ./HelloWorld
 => HelloWorld!
 ```
@@ -97,8 +97,8 @@ add_executable(HelloWorld main.cc)
 ## Installation
 ```
 cd src
-cmake .
-cmake --build .
+cmake -D CMAKE_CXX_COMPILER=/usr/bin/g++-13 .
+cmake --build . --verbose
 sudo cmake --build . --target install
 ```
 
