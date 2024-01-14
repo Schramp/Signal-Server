@@ -15,7 +15,7 @@ WARNING: The accuracy of the output is directly proportional to the accuracy of 
 
 
 ## Requirements
-* C++14-conformant C++ compiler (GCC,G++ / clang)
+* C++14-conformant C++ compiler (GCC / clang)
 * Build environment for C++ (linker, C++ Standard Library and so forth) 
 * CMake v3.13 or newer
 * Convert (part of ImageMagick)
@@ -31,6 +31,18 @@ WARNING: The accuracy of the output is directly proportional to the accuracy of 
 Signal Server is a very resource intensive multicore application. Only publish it for common use if you know what you are doing and you are advised to wrap it with another script to perform input validation.
 
 Additional programs/scripts will be required to prepare inputs such as .hgt tiles (srtm2sdf.c), 3D antenna patterns (.ant) and user defined clutter (.udt) or manipulate the bitmap output (.ppm). More information can be found in the SPLAT! project.
+
+## Recommendations
+Recommendations for security reasons. Source:  
+https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C++
+* C++-Compiler: GCC or clang. Minimum version: GCC version 13 or clang 16.0.0
+* C++ Standard library: libstdc++ (GNU) or libc++ (clang). Minimum version: libstdc++ 6.0 or libc++ 3.3.0. 
+* GNU Binutils with GNU linker (ld): Minimum version: Binutils 2.16
+
+* One or more fast x86_64 CPU or fast Apple silicon (ARM). 
+
+Replace in CMakeLists.txt line "-D_GLIBCXX_ASSERTIONS" with "-D_LIBCPP_ASSERT" for libc++.  
+Replace in CMakeLists.txt line "-fcf-protection=full" with "-mbranch-protection=standard" for Apple silicon (ARM).
 
 ## File extensions and types used by signalserver:
 ```
@@ -106,6 +118,11 @@ sudo cmake --build . --target install
 ```
 ./test.sh
 ```
+Open html file:
+```
+/tmp/tests/Regacom_Tests_WebMercator.html
+```
+with your web browser.
 
 ## Parameters
 ```

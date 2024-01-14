@@ -89,7 +89,7 @@ target_link_libraries(signalserver
 			PUBLIC dl
 			PUBLIC pthread
 			PUBLIC z
-		  )
+		)
 
 target_link_libraries(signalserverHD 
 			PUBLIC image
@@ -112,7 +112,7 @@ target_link_libraries(signalserverHD
 			PUBLIC dl
 			PUBLIC pthread
 			PUBLIC z
-		  )
+		)
 
 target_link_libraries(signalserverLIDAR 
 			PUBLIC image
@@ -135,7 +135,7 @@ target_link_libraries(signalserverLIDAR
 			PUBLIC dl
 			PUBLIC pthread
 			PUBLIC z
-		  )
+		)
 
 # INSTALL target (make install)
 install(TARGETS signalserver)
