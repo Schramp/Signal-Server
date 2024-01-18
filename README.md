@@ -33,16 +33,25 @@ Signal Server is a very resource intensive multicore application. Only publish i
 Additional programs/scripts will be required to prepare inputs such as .hgt tiles (srtm2sdf.c), 3D antenna patterns (.ant) and user defined clutter (.udt) or manipulate the bitmap output (.ppm). More information can be found in the SPLAT! project.
 
 ## Recommendations
+
+### Security
 Recommendations for security reasons. Source:  
 https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C++
 * C++-Compiler: GCC or clang. Minimum version: GCC version 13 or clang 16.0.0
 * C++ Standard library: libstdc++ (GNU) or libc++ (clang). Minimum version: libstdc++ 6.0 or libc++ 3.3.0. 
 * GNU Binutils with GNU linker (ld): Minimum version: Binutils 2.16
 
-* One or more fast x86_64 CPU or fast Apple silicon (ARM). 
-
 Replace in CMakeLists.txt line "-D_GLIBCXX_ASSERTIONS" with "-D_LIBCPP_ASSERT" for libc++.  
 Replace in CMakeLists.txt line "-fcf-protection=full" with "-mbranch-protection=standard" for Apple silicon (ARM).
+
+### Performance
+Recommendations for good performance. Sources:  
+https://developers.redhat.com/blog/2021/01/05/building-red-hat-enterprise-linux-9-for-the-x86-64-v2-microarchitecture-level  
+https://developers.redhat.com/articles/2024/01/02/exploring-x86-64-v3-red-hat-enterprise-linux-10
+* One or more fast x86_64 CPU (x86-64-v3) or fast Apple silicon (ARM).
+
+Remove line "-march=x86-64-v3" in CMakeLists.txt for Apple silicon (ARM) and slower x86_64 CPU.
+
 
 ## File extensions and types used by signalserver:
 ```
@@ -94,7 +103,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(CMAKE_CXX_FLAGS "-O2")
+set(CMAKE_CXX_FLAGS "-O3")
 
 add_executable(HelloWorld main.cc)
 ```

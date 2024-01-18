@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Optimization
-set(CMAKE_CXX_FLAGS "-O2")
+set(CMAKE_CXX_FLAGS "-O3")
 
 # Compiler flags and warnings
 if (MSVC)
@@ -27,6 +27,7 @@ else()
 						-fPIE -pie
 						-D_GLIBCXX_ASSERTIONS
 						-fcf-protection=full
+						-march=x86-64-v3
 						)
 endif()
 
