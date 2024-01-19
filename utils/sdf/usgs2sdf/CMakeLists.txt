@@ -10,6 +10,18 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Optimization
 set(CMAKE_CXX_FLAGS "-O3")
 
+# Link time optimization (LTO)
+# https://documentation.suse.com/sbp/server-linux/html/SBP-GCC-12/index.html#sec-gcc12-lto
+include(CheckIPOSupported)
+check_ipo_supported(RESULT result OUTPUT output LANGUAGES CXX)
+if(result)
+	set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+	message(STATUS "LTO is supported:  ${output}")
+else()
+	set(CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF)
+	message(WARNING "LTO is not supported:  ${output}")
+endif()
+
 # Compiler warnings
 if (MSVC)
 	# warning level 4
