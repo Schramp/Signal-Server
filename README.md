@@ -25,7 +25,7 @@ WARNING: The accuracy of the output is directly proportional to the accuracy of 
 * library dl: Open and close a shared object - POSIX conform
 * library z: zlib is a general-purpose lossless data-compression library
 * Multicore CPU (optional but recomended)
-* ~2GiB Memory for general usage; 16 GiB Memory for test.sh
+* 4 GiB RAM for near range coverage maps; 8 GiB RAM for long range coverage maps
 * SRTM terrain tile(s) or ASCII Grid tile(s)
 
 Signal Server is a very resource intensive multicore application. Only publish it for common use if you know what you are doing and you are advised to wrap it with another script to perform input validation.
