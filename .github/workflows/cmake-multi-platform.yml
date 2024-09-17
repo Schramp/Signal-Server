@@ -1,5 +1,3 @@
-# This starter workflow is for a CMake project running on multiple platforms.
-# See: https://github.com/actions/starter-workflows/blob/main/ci/cmake-single-platform.yml
 name: CMake on multiple platforms
 
 on:
@@ -39,6 +37,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Install spdlog on Ubuntu
+      if: matrix.os == 'ubuntu-latest'
+      run: sudo apt-get install -y libspdlog-dev
+
+    - name: Install vcpkg on Windows
+      if: matrix.os == 'windows-latest'
+      run: |
+        git clone https://github.com/microsoft/vcpkg.git
+        .\vcpkg\bootstrap-vcpkg.bat
+        .\vcpkg\vcpkg install spdlog
 
     - name: Set reusable strings
       id: strings
