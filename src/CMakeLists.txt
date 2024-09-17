@@ -33,7 +33,6 @@ else()
     add_compile_options(-Wall -Wextra -Wformat=2 -Wconversion -Wsign-conversion 
 						-Wtrampolines -Wimplicit-fallthrough 
 						-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 
-						-fstrict-flex-arrays=3 
 						-fstack-clash-protection -fstack-protector-strong 
 						-Wl,-z,nodlopen -Wl,-z,noexecstack 
 						-Wl,-z,relro -Wl,-z,now 
