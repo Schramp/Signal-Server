@@ -2076,7 +2076,7 @@ int LoadTopoData(bbox region)
             spdlog::debug("Loading topo for tile {}N {}W to {}N {}W", tile_lat, tile_lon, tile_lat + 1, tile_lon + 1);
             // Generate the filename string to load
             char basename[32], string[32];
-            snprintf(basename, 12, "%d_%d_%d_%d", tile_lat, tile_lat + 1, tile_lon, tile_lon + 1);
+            snprintf(basename, 16, "%d_%d_%d_%d", tile_lat, tile_lat + 1, tile_lon, tile_lon + 1);
             strcpy(string, basename);
             if (ippd == 3600) strcat(string, "-hd");
             // Load the tile

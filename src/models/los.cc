@@ -139,7 +139,7 @@ namespace {
 
         spdlog::debug("Starting rangePropagation for {} range {:.6f}N {:.6f}W to {:.6f}N {:.6f}W, {} points at {:.8f} dpp [Segment {}]",
             vertical ? "vertical" : "horizontal",
-            v->min_north, v->min_west, v->max_north, v->max_west, progress.total, dpp, progress.id);
+            v->min_north, v->min_west, v->max_north, v->max_west, progress.total.load(), dpp, progress.id);
 
         // Init our varaibles for tracking position over the loop
         double lat = v->min_north;
