@@ -1534,8 +1534,8 @@ void PathReport(struct site source, struct site destination, char *name,
 
         if((loss*1.5) < free_space_loss){
 			fprintf(fd2,"Model error! Computed loss of %.1fdB is greater than free space loss of %.1fdB. Check your inuts for model %d\n",loss,free_space_loss,propmodel);
-            spdlog::error("Model error! Computed loss of {:.1f} dB is greater than free space loss of {:.1f} dB. Check your inuts for model {}",loss,free_space_loss,propmodel);
-            return;
+			spdlog::error("Model error! Computed loss of {:.1f} dB is greater than free space loss of {:.1f} dB. Check your inputs for model {}", loss, free_space_loss, static_cast<int>(propmodel));
+			return;
         }
 
 		if (free_space_loss != 0.0)

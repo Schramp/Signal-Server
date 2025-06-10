@@ -50,6 +50,17 @@ _deps
 # Output data
 *.ppm
 *.dcf
+output/
 
 # VSCode
 .vscode/
+
+# Images
+*.png
+*.kmz
+*.tiff
+
+# Built utils
+utils/sdf/usgs2sdf/srtm2sdf
+utils/sdf/usgs2sdf/srtm2sdf-hd
+utils/sdf/usgs2sdf/usgs2sdf
